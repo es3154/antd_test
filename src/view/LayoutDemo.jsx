@@ -9,6 +9,7 @@ const { Header, Footer, Sider, Content } = Layout;
 import { NavigationsDemo } from './NavigationsDemo.jsx';
 import { TabsDemo } from './TabsDemo.jsx';
 import { AutoCompleteDemo } from './AutoCompleteDemo.jsx';
+import { DatePickerDemo } from './DatePickerDemo.jsx';
 import './layoutDemo.css';
 
 export class LayoutDemo extends React.Component {
@@ -23,9 +24,10 @@ export class LayoutDemo extends React.Component {
         };
 
         this.views = {
-            'nav':<NavigationsDemo/>,
-            'tab':<TabsDemo/>,
-            'auto':<AutoCompleteDemo/>
+            'nav': <NavigationsDemo/>,
+            'tab': <TabsDemo/>,
+            'auto': <AutoCompleteDemo/>,
+            'date': <DatePickerDemo/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -146,7 +148,7 @@ export class LayoutDemo extends React.Component {
                         </SubMenu>
                         <SubMenu key="sub2"
                                  title={<span><Icon type="team"/><span className="nav-text">Team</span></span>}>
-                            <Menu.Item key="4">Tom</Menu.Item>
+                            <Menu.Item key="date">DatePickerDemo</Menu.Item>
                             <Menu.Item key="5">Bill</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">

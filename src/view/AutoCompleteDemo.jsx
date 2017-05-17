@@ -3,8 +3,9 @@
  */
 
 import React from 'react';
-import { AutoComplete } from 'antd';
+import { AutoComplete, Checkbox } from 'antd';
 const { Option } = AutoComplete;
+const CheckBoxGroup = Checkbox.Group;
 
 export class AutoCompleteDemo extends React.Component {
 
@@ -22,6 +23,26 @@ export class AutoCompleteDemo extends React.Component {
                     ]
             });
         }
+
+        this.checkBoxChangeHandle = e => {
+            console.log(e.target.checked);
+        };
+
+        this.checkBoxGroupChangeHandle = checkValues => {
+            console.log(checkValues);
+        }
+
+        this.plainOptions = ['Apple', 'Pear', 'Orange'];
+        this.options = [
+            { label: 'Apple', value: 'Apple' },
+            { label: 'Pear', value: 'Pear' },
+            { label: 'Orange', value: 'Orange' },
+        ];
+        this.optionsWithDisabled = [
+            { label: 'Apple', value: 'Apple' },
+            { label: 'Pear', value: 'Pear' },
+            { label: 'Orange', value: 'Orange', disabled: false },
+        ];
     }
 
 
@@ -44,6 +65,23 @@ export class AutoCompleteDemo extends React.Component {
                         })
                     }
                 </AutoComplete>
+
+                <br/>
+                <br/>
+                <Checkbox onChange={this.checkBoxChangeHandle}>checkBox</Checkbox>
+
+                <br/>
+                <br/>
+
+                <CheckBoxGroup options={this.plainOptions} defaultValue={['Apple']}
+                               onChange={this.checkBoxGroupChangeHandle}/>
+                <br/>
+                <CheckBoxGroup options={this.options} defaultValue={['Pear']}
+                               onChange={this.checkBoxGroupChangeHandle}/>
+                <br/>
+                <CheckBoxGroup options={this.optionsWithDisabled} disabled defaultValue={['Apple']}
+                               onChange={this.checkBoxGroupChangeHandle}/>
+
             </div>
         );
     }
