@@ -11,6 +11,7 @@ import { TabsDemo } from './TabsDemo.jsx';
 import { AutoCompleteDemo } from './AutoCompleteDemo.jsx';
 import { DatePickerDemo } from './DatePickerDemo.jsx';
 import { FormDemo } from './FormDemo.jsx';
+import { NormalFormDemo } from './NormalFormDemo.jsx';
 import './layoutDemo.css';
 
 export class LayoutDemo extends React.Component {
@@ -25,12 +26,14 @@ export class LayoutDemo extends React.Component {
         };
 
         const HorizontalForm = Form.create()(FormDemo);
+        const WrappedNormalLoginForm = Form.create()(NormalFormDemo);
         this.views = {
             'nav': <NavigationsDemo/>,
             'tab': <TabsDemo/>,
             'auto': <AutoCompleteDemo/>,
             'date': <DatePickerDemo/>,
-            'form': <HorizontalForm/>
+            'form': <HorizontalForm/>,
+            'normalForm': <WrappedNormalLoginForm/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -153,6 +156,7 @@ export class LayoutDemo extends React.Component {
                                  title={<span><Icon type="team"/><span className="nav-text">Team</span></span>}>
                             <Menu.Item key="date">DatePickerDemo</Menu.Item>
                             <Menu.Item key="form">FormDemo</Menu.Item>
+                            <Menu.Item key="normalForm">NormalFormDemo</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
