@@ -11,6 +11,7 @@ import { TabsDemo } from './TabsDemo.jsx';
 import { AutoCompleteDemo } from './AutoCompleteDemo.jsx';
 import { DatePickerDemo } from './DatePickerDemo.jsx';
 import { RegistrationForm } from './RegistrationForm.jsx';
+import { AdvancedSearchForm } from './AdvancedSearchForm.jsx';
 
 import './layoutDemo.css';
 
@@ -26,13 +27,15 @@ export class LayoutDemo extends React.Component {
         };
 
         const RegistrationFormCreate = Form.create()(RegistrationForm);
+        const AdvancedSearchFormCreate = Form.create()(AdvancedSearchForm);
 
         this.views = {
             'nav': <NavigationsDemo/>,
             'tab': <TabsDemo/>,
             'auto': <AutoCompleteDemo/>,
             'date': <DatePickerDemo/>,
-            'regForm': <RegistrationFormCreate/>
+            'regForm': <RegistrationFormCreate/>,
+            'advancedSearch': <AdvancedSearchFormCreate/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -155,11 +158,12 @@ export class LayoutDemo extends React.Component {
                                  title={<span><Icon type="team"/><span className="nav-text">Team</span></span>}>
                             <Menu.Item key="date">DatePickerDemo</Menu.Item>
                             <Menu.Item key="regForm">RegistrationForm</Menu.Item>
+                            <Menu.Item key="advancedSearch">AdvancedSearchForm</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
                                 <Icon type="file"/>
-                                <span className="nav-text">File</span>
+                                <span className="nav-text">file</span>
                             </span>
                         </Menu.Item>
                     </Menu>
