@@ -3,13 +3,18 @@
  */
 
 import React from 'react';
-import { Layout, Menu, Breadcrumb, Icon, Dropdown, Button, Pagination, Steps } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Form } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Footer, Sider, Content } = Layout;
 import { NavigationsDemo } from './NavigationsDemo.jsx';
 import { TabsDemo } from './TabsDemo.jsx';
 import { AutoCompleteDemo } from './AutoCompleteDemo.jsx';
 import { DatePickerDemo } from './DatePickerDemo.jsx';
+import { RegistrationForm } from './RegistrationForm.jsx';
+import { AdvancedSearchForm } from './AdvancedSearchForm.jsx';
+import { FormDemo } from './FormDemo.jsx';
+import { NormalFormDemo } from './NormalFormDemo.jsx';
+
 import './layoutDemo.css';
 
 export class LayoutDemo extends React.Component {
@@ -23,11 +28,20 @@ export class LayoutDemo extends React.Component {
             selectMenuItem:'tab'
         };
 
+        const RegistrationFormCreate = Form.create()(RegistrationForm);
+        const AdvancedSearchFormCreate = Form.create()(AdvancedSearchForm);
+        const FormDemoCreate = Form.create()(FormDemo);
+        const NormalFormDemoCreate = Form.create()(NormalFormDemo);
+
         this.views = {
             'nav': <NavigationsDemo/>,
             'tab': <TabsDemo/>,
             'auto': <AutoCompleteDemo/>,
-            'date': <DatePickerDemo/>
+            'date': <DatePickerDemo/>,
+            'form': <FormDemoCreate/>,
+            'normalForm': <NormalFormDemoCreate/>,
+            'regForm': <RegistrationFormCreate/>,
+            'advancedSearch': <AdvancedSearchFormCreate/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -149,12 +163,15 @@ export class LayoutDemo extends React.Component {
                         <SubMenu key="sub2"
                                  title={<span><Icon type="team"/><span className="nav-text">Team</span></span>}>
                             <Menu.Item key="date">DatePickerDemo</Menu.Item>
-                            <Menu.Item key="5">Bill</Menu.Item>
+                            <Menu.Item key="form">FormDemo</Menu.Item>
+                            <Menu.Item key="normalForm">NormalFormDemo</Menu.Item>
+                            <Menu.Item key="regForm">RegistrationForm</Menu.Item>
+                            <Menu.Item key="advancedSearch">AdvancedSearchForm</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
                                 <Icon type="file"/>
-                                <span className="nav-text">File</span>
+                                <span className="nav-text">file</span>
                             </span>
                         </Menu.Item>
                     </Menu>
