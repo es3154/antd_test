@@ -10,6 +10,8 @@ import { NavigationsDemo } from './NavigationsDemo.jsx';
 import { TabsDemo } from './TabsDemo.jsx';
 import { AutoCompleteDemo } from './AutoCompleteDemo.jsx';
 import { DatePickerDemo } from './DatePickerDemo.jsx';
+import { RegistrationForm } from './RegistrationForm.jsx';
+import { AdvancedSearchForm } from './AdvancedSearchForm.jsx';
 import { FormDemo } from './FormDemo.jsx';
 import { NormalFormDemo } from './NormalFormDemo.jsx';
 import './layoutDemo.css';
@@ -25,6 +27,10 @@ export class LayoutDemo extends React.Component {
             selectMenuItem:'tab'
         };
 
+        const RegistrationFormCreate = Form.create()(RegistrationForm);
+        const AdvancedSearchFormCreate = Form.create()(AdvancedSearchForm);
+
+
         const HorizontalForm = Form.create()(FormDemo);
         const WrappedNormalLoginForm = Form.create()(NormalFormDemo);
         this.views = {
@@ -33,7 +39,9 @@ export class LayoutDemo extends React.Component {
             'auto': <AutoCompleteDemo/>,
             'date': <DatePickerDemo/>,
             'form': <HorizontalForm/>,
-            'normalForm': <WrappedNormalLoginForm/>
+            'normalForm': <WrappedNormalLoginForm/>,
+            'regForm': <RegistrationFormCreate/>,
+            'advancedSearch': <AdvancedSearchFormCreate/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -155,13 +163,15 @@ export class LayoutDemo extends React.Component {
                         <SubMenu key="sub2"
                                  title={<span><Icon type="team"/><span className="nav-text">Team</span></span>}>
                             <Menu.Item key="date">DatePickerDemo</Menu.Item>
+                            <Menu.Item key="regForm">RegistrationForm</Menu.Item>
+                            <Menu.Item key="advancedSearch">AdvancedSearchForm</Menu.Item>
                             <Menu.Item key="form">FormDemo</Menu.Item>
                             <Menu.Item key="normalForm">NormalFormDemo</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
                                 <Icon type="file"/>
-                                <span className="nav-text">File</span>
+                                <span className="nav-text">file</span>
                             </span>
                         </Menu.Item>
                     </Menu>
