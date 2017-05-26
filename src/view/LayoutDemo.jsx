@@ -14,6 +14,9 @@ import { RegistrationForm } from './RegistrationForm.jsx';
 import { AdvancedSearchForm } from './AdvancedSearchForm.jsx';
 import { FormDemo } from './FormDemo.jsx';
 import { NormalFormDemo } from './NormalFormDemo.jsx';
+import { CollectionsPage } from './CollectionsPage.jsx';
+import { TimeRelatedForm } from './TimeRelatedForm.jsx';
+
 
 import './layoutDemo.css';
 
@@ -32,6 +35,7 @@ export class LayoutDemo extends React.Component {
         const AdvancedSearchFormCreate = Form.create()(AdvancedSearchForm);
         const FormDemoCreate = Form.create()(FormDemo);
         const NormalFormDemoCreate = Form.create()(NormalFormDemo);
+        const TimeRelatedFormCreate = Form.create()(TimeRelatedForm);
 
         this.views = {
             'nav': <NavigationsDemo/>,
@@ -41,7 +45,9 @@ export class LayoutDemo extends React.Component {
             'form': <FormDemoCreate/>,
             'normalForm': <NormalFormDemoCreate/>,
             'regForm': <RegistrationFormCreate/>,
-            'advancedSearch': <AdvancedSearchFormCreate/>
+            'advancedSearch': <AdvancedSearchFormCreate/>,
+            'collectionsPage': <CollectionsPage/>,
+            'timeRelated': <TimeRelatedFormCreate/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -153,7 +159,7 @@ export class LayoutDemo extends React.Component {
                 <Sider collapsible={true} collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                     <div className="log"></div>
                     <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['tab']}
-                          defaultOpenKeys={['sub1']} onSelect={this.onMenuItemSelect}>
+                          defaultOpenKeys={['sub2']} onSelect={this.onMenuItemSelect}>
                         <SubMenu key="sub1"
                                  title={<span><Icon type="user"/><span className="nav-text">User</span></span>}>
                             <Menu.Item key="nav">NavigationsDemo</Menu.Item>
@@ -167,6 +173,8 @@ export class LayoutDemo extends React.Component {
                             <Menu.Item key="normalForm">NormalFormDemo</Menu.Item>
                             <Menu.Item key="regForm">RegistrationForm</Menu.Item>
                             <Menu.Item key="advancedSearch">AdvancedSearchForm</Menu.Item>
+                            <Menu.Item key="collectionsPage">CollectionsPage</Menu.Item>
+                            <Menu.Item key="timeRelated">TimeRelatedForm</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
