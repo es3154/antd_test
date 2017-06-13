@@ -16,6 +16,7 @@ import { FormDemo } from './FormDemo.jsx';
 import { NormalFormDemo } from './NormalFormDemo.jsx';
 import { CollectionsPage } from './CollectionsPage.jsx';
 import { TimeRelatedForm } from './TimeRelatedForm.jsx';
+import { LastFromDemo } from './LastFromDemo.jsx';
 
 
 import './layoutDemo.css';
@@ -36,6 +37,7 @@ export class LayoutDemo extends React.Component {
         const FormDemoCreate = Form.create()(FormDemo);
         const NormalFormDemoCreate = Form.create()(NormalFormDemo);
         const TimeRelatedFormCreate = Form.create()(TimeRelatedForm);
+        const LastFromDemoCreate = Form.create()(LastFromDemo);
 
         this.views = {
             'nav': <NavigationsDemo/>,
@@ -47,7 +49,8 @@ export class LayoutDemo extends React.Component {
             'regForm': <RegistrationFormCreate/>,
             'advancedSearch': <AdvancedSearchFormCreate/>,
             'collectionsPage': <CollectionsPage/>,
-            'timeRelated': <TimeRelatedFormCreate/>
+            'timeRelated': <TimeRelatedFormCreate/>,
+            'lastFormDemo': <LastFromDemoCreate/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -175,6 +178,8 @@ export class LayoutDemo extends React.Component {
                             <Menu.Item key="advancedSearch">AdvancedSearchForm</Menu.Item>
                             <Menu.Item key="collectionsPage">CollectionsPage</Menu.Item>
                             <Menu.Item key="timeRelated">TimeRelatedForm</Menu.Item>
+                            <Menu.Item key="lastFormDemo">LastFormDemo</Menu.Item>
+
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
