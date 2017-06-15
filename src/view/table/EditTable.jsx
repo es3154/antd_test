@@ -11,20 +11,21 @@ class EditTableCell extends React.Component {
 
     constructor() {
         super();
+
         this.state = {
-            value: this.props.value,
+            text:'',
             editable: false
         };
 
         this.handleChange = (e) => {
-            const value = e.target.value;
-            this.setState({value});
+            const text = e.target.value;
+            this.setState({text});
         };
 
         this.check = () => {
             this.setState({editable:false});
             if(this.props.onChange) {
-                this.props.onChange(this.state.value);
+                this.props.onChange(this.state.text);
             }
         };
 
@@ -34,15 +35,21 @@ class EditTableCell extends React.Component {
 
     }
 
+    componentWillMount() {
+        const text = this.props.text;
+        this.setState({text});
+    }
+
+
     render() {
-        const { value, editable } = this.state;
-        console.log(value,editable);
+        const { text, editable } = this.state;
+
         return (
             <div className="editable-cell">
                 {
                     editable ?
                         <div className="editable-cell-input-wrapper">
-                            <Input value={value}
+                            <Input value={text}
                                    onChange={this.handleChange}
                                    onPressEnter={this.check}
                             />
@@ -53,7 +60,7 @@ class EditTableCell extends React.Component {
                         </div>
                         :
                         <div className="editable-cell-text-wrapper">
-                            { value || '' }
+                            { text || '' }
                             <Icon type="edit"
                                   className="editable-cell-icon"
                                   onClick={this.edit}
@@ -67,8 +74,8 @@ class EditTableCell extends React.Component {
 
 export class EditTable extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             dataSource: [{
@@ -89,9 +96,9 @@ export class EditTable extends React.Component {
             title:'Name',
             dataIndex:'name',
             width:'30%',
-            render:(text,row,index)=>{
-                <EditTableCell value={text} onChange={this.onCellChange(index,'name')}/>
-            }
+            render:(text,row,index)=>(
+                <EditTableCell text={text} onChange={this.onCellChange(index,'name')}/>
+            )
         },{
             title:'Age',
             dataIndex:'age'
