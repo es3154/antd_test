@@ -17,6 +17,15 @@ import { NormalFormDemo } from './NormalFormDemo.jsx';
 import { CollectionsPage } from './CollectionsPage.jsx';
 import { TimeRelatedForm } from './TimeRelatedForm.jsx';
 import { LastFromDemo } from './LastFromDemo.jsx';
+import { BaseTabel } from './table/BaseTabel.jsx';
+import { SelectionTable } from './table/SelectionTable.jsx';
+import { SelectionTable1 } from './table/SelectionTable1.jsx';
+import { LoadTable } from './table/LoadTable.jsx';
+import { BorderTable } from './table/BorderTable.jsx';
+import { ExpandedRowTable } from './table/ExpandedRowTable.jsx';
+import { HeBingTable } from './table/HeBingTable.jsx';
+import { GDheadTable } from './table/GDheadTable.jsx';
+import { EditTable } from './table/EditTable.jsx';
 
 
 import './layoutDemo.css';
@@ -29,7 +38,7 @@ export class LayoutDemo extends React.Component {
         this.state = {
             collapsed: false,
             mode: 'inline',
-            selectMenuItem:'tab'
+            selectMenuItem:'baseTable'
         };
 
         const RegistrationFormCreate = Form.create()(RegistrationForm);
@@ -38,6 +47,7 @@ export class LayoutDemo extends React.Component {
         const NormalFormDemoCreate = Form.create()(NormalFormDemo);
         const TimeRelatedFormCreate = Form.create()(TimeRelatedForm);
         const LastFromDemoCreate = Form.create()(LastFromDemo);
+
 
         this.views = {
             'nav': <NavigationsDemo/>,
@@ -50,7 +60,16 @@ export class LayoutDemo extends React.Component {
             'advancedSearch': <AdvancedSearchFormCreate/>,
             'collectionsPage': <CollectionsPage/>,
             'timeRelated': <TimeRelatedFormCreate/>,
-            'lastFormDemo': <LastFromDemoCreate/>
+            'lastFormDemo': <LastFromDemoCreate/>,
+            'baseTable': <BaseTabel/>,
+            'selectionTable': <SelectionTable/>,
+            'selectionTable1': <SelectionTable1/>,
+            'loadTable': <LoadTable/>,
+            'borderTable': <BorderTable/>,
+            'expandedRowTable': <ExpandedRowTable/>,
+            'heBingTable': <HeBingTable/>,
+            'gDheadTable': <GDheadTable/>,
+            'editTable': <EditTable/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -161,8 +180,8 @@ export class LayoutDemo extends React.Component {
             <Layout>
                 <Sider collapsible={true} collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                     <div className="log"></div>
-                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['tab']}
-                          defaultOpenKeys={['sub2']} onSelect={this.onMenuItemSelect}>
+                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['baseTable']}
+                          defaultOpenKeys={['sub3']} onSelect={this.onMenuItemSelect}>
                         <SubMenu key="sub1"
                                  title={<span><Icon type="user"/><span className="nav-text">User</span></span>}>
                             <Menu.Item key="nav">NavigationsDemo</Menu.Item>
@@ -180,6 +199,19 @@ export class LayoutDemo extends React.Component {
                             <Menu.Item key="timeRelated">TimeRelatedForm</Menu.Item>
                             <Menu.Item key="lastFormDemo">LastFormDemo</Menu.Item>
 
+                        </SubMenu>
+                        <SubMenu key="sub3"
+                                 title={<span><Icon type="file"/><span className="nav-text">Table</span></span>}>
+                            <Menu.Item key="baseTable">BaseTable</Menu.Item>
+                            <Menu.Item key="selectionTable">SelectionTable</Menu.Item>
+                            <Menu.Item key="selectionTable1">SelectionTable1</Menu.Item>
+                            <Menu.Item key="loadTable">LoadTable</Menu.Item>
+                            <Menu.Item key="borderTable">BorderTable</Menu.Item>
+                            <Menu.Item key="expandedRowTable">ExpandedRowTable</Menu.Item>
+                            <Menu.Item key="heBingTable">HeBingTable</Menu.Item>
+                            <Menu.Item key="gDheadTable">GDheadTable</Menu.Item>
+                            <Menu.Item key="editTable">EditTable</Menu.Item>
+                            <Menu.Item key="baseTable">BaseTable</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
