@@ -24,7 +24,7 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-                presets: ['es2015', 'react'],
+                presets: ['es2015', 'react', 'stage-2'],
                 plugins: ['transform-runtime', ['import', {
                     libraryName: 'antd',
                     style: 'css' // or true or css 这里必须是 css，否则样式不能加载
