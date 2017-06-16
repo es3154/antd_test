@@ -26,7 +26,11 @@ import { ExpandedRowTable } from './table/ExpandedRowTable.jsx';
 import { HeBingTable } from './table/HeBingTable.jsx';
 import { GDheadTable } from './table/GDheadTable.jsx';
 import { EditTable } from './table/EditTable.jsx';
-
+import { DynamicTable } from './table/DynamicTable.jsx';
+import { AlertDemo } from './other/AlertDemo.jsx';
+import { ModalDemo } from './other/ModalDemo.jsx';
+import { MessageDemo } from './other/MessageDemo.jsx';
+import { NotificationDemo } from './other/NotificationDemo.jsx';
 
 import './layoutDemo.css';
 
@@ -38,7 +42,7 @@ export class LayoutDemo extends React.Component {
         this.state = {
             collapsed: false,
             mode: 'inline',
-            selectMenuItem:'baseTable'
+            selectMenuItem:'alertDemo'
         };
 
         const RegistrationFormCreate = Form.create()(RegistrationForm);
@@ -69,7 +73,12 @@ export class LayoutDemo extends React.Component {
             'expandedRowTable': <ExpandedRowTable/>,
             'heBingTable': <HeBingTable/>,
             'gDheadTable': <GDheadTable/>,
-            'editTable': <EditTable/>
+            'editTable': <EditTable/>,
+            'dynamicTable': <DynamicTable/>,
+            'alertDemo': <AlertDemo/>,
+            'modalDemo': <ModalDemo/>,
+            'messageDemo': <MessageDemo/>,
+            'notificationDemo': <NotificationDemo/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -181,7 +190,7 @@ export class LayoutDemo extends React.Component {
                 <Sider collapsible={true} collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                     <div className="log"></div>
                     <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['baseTable']}
-                          defaultOpenKeys={['sub3']} onSelect={this.onMenuItemSelect}>
+                          defaultOpenKeys={['sub4']} onSelect={this.onMenuItemSelect}>
                         <SubMenu key="sub1"
                                  title={<span><Icon type="user"/><span className="nav-text">User</span></span>}>
                             <Menu.Item key="nav">NavigationsDemo</Menu.Item>
@@ -211,7 +220,15 @@ export class LayoutDemo extends React.Component {
                             <Menu.Item key="heBingTable">HeBingTable</Menu.Item>
                             <Menu.Item key="gDheadTable">GDheadTable</Menu.Item>
                             <Menu.Item key="editTable">EditTable</Menu.Item>
-                            <Menu.Item key="baseTable">BaseTable</Menu.Item>
+                            <Menu.Item key="dynamicTable">DynamicTable</Menu.Item>
+                        </SubMenu>
+                        <SubMenu key="sub4"
+                                 title={<span><Icon type="file"/><span className="nav-text">Other</span></span>}>
+                            <Menu.Item key="alertDemo">AlertDemo</Menu.Item>
+                            <Menu.Item key="modalDemo">ModalDemo</Menu.Item>
+                            <Menu.Item key="messageDemo">MessageDemo</Menu.Item>
+                            <Menu.Item key="notificationDemo">NotificationDemo</Menu.Item>
+                            <Menu.Item key="alertDemo">AlertDemo</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="6">
                             <span>
