@@ -4,8 +4,6 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import { ButtonDemo } from './ButtonDemo.jsx';
-import { GridDemo } from './GridDemo.jsx';
 import { LayoutDemo } from './LayoutDemo.jsx';
 
 class App extends React.Component {
