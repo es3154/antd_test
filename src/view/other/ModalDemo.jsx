@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Modal, Button } from 'antd';
-export class ModalDemo extends React.Component {
+export default class ModalDemo extends React.Component {
 
     constructor() {
         super();

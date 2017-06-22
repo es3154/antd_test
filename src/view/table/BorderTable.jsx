@@ -6,7 +6,7 @@ import React from 'react';
 import { Table } from 'antd';
 import './borderTable.css';
 
-export class BorderTable extends React.Component {
+export default class BorderTable extends React.Component {
 
     constructor() {
         super();

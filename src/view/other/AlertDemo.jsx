@@ -5,7 +5,7 @@
 import React from 'react';
 import { Alert } from 'antd';
 
-export class AlertDemo extends React.Component {
+export default class AlertDemo extends React.Component {
 
     constructor() {
         super();

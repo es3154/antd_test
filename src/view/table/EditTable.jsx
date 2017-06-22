@@ -72,7 +72,7 @@ class EditTableCell extends React.Component {
     }
 }
 
-export class EditTable extends React.Component {
+export default class EditTable extends React.Component {
 
     constructor() {
         super();

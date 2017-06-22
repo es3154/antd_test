@@ -5,7 +5,7 @@
 import React from 'react';
 import { Table } from 'antd';
 
-export class HeBingTable extends React.Component {
+export default class HeBingTable extends React.Component {
 
     constructor() {
         super();

@@ -18,19 +18,20 @@ import { CollectionsPage } from './CollectionsPage.jsx';
 import { TimeRelatedForm } from './TimeRelatedForm.jsx';
 import { LastFromDemo } from './LastFromDemo.jsx';
 import { BaseTabel } from './table/BaseTabel.jsx';
-import { SelectionTable } from './table/SelectionTable.jsx';
-import { SelectionTable1 } from './table/SelectionTable1.jsx';
-import { LoadTable } from './table/LoadTable.jsx';
-import { BorderTable } from './table/BorderTable.jsx';
-import { ExpandedRowTable } from './table/ExpandedRowTable.jsx';
-import { HeBingTable } from './table/HeBingTable.jsx';
-import { GDheadTable } from './table/GDheadTable.jsx';
-import { EditTable } from './table/EditTable.jsx';
-import { DynamicTable } from './table/DynamicTable.jsx';
-import { AlertDemo } from './other/AlertDemo.jsx';
-import { ModalDemo } from './other/ModalDemo.jsx';
-import { MessageDemo } from './other/MessageDemo.jsx';
-import { NotificationDemo } from './other/NotificationDemo.jsx';
+// import { SelectionTable } from './table/SelectionTable.jsx';
+// import { SelectionTable1 } from './table/SelectionTable1.jsx';
+// import { LoadTable } from './table/LoadTable.jsx';
+// import { BorderTable } from './table/BorderTable.jsx';
+// import { ExpandedRowTable } from './table/ExpandedRowTable.jsx';
+// import { HeBingTable } from './table/HeBingTable.jsx';
+// import { GDheadTable } from './table/GDheadTable.jsx';
+// import { EditTable } from './table/EditTable.jsx';
+// import { DynamicTable } from './table/DynamicTable.jsx';
+// import { AlertDemo } from './other/AlertDemo.jsx';
+// import { ModalDemo } from './other/ModalDemo.jsx';
+// import { MessageDemo } from './other/MessageDemo.jsx';
+// import { NotificationDemo } from './other/NotificationDemo.jsx';
+import { asyncComponent } from './AsyncComponent.jsx';
 
 import './layoutDemo.css';
 
@@ -51,6 +52,49 @@ export class LayoutDemo extends React.Component {
         const NormalFormDemoCreate = Form.create()(NormalFormDemo);
         const TimeRelatedFormCreate = Form.create()(TimeRelatedForm);
         const LastFromDemoCreate = Form.create()(LastFromDemo);
+
+        const NotificationDemo = asyncComponent(() => (
+            import(/* webpackChunkName: "NotificationDemo" */ "./other/NotificationDemo.jsx")
+        ));
+        const MessageDemo = asyncComponent(() => (
+            import(/* webpackChunkName: "MessageDemo" */ "./other/MessageDemo.jsx")
+        ));
+        const ModalDemo = asyncComponent(() => (
+            import(/* webpackChunkName: "ModalDemo" */ "./other/ModalDemo.jsx")
+        ));
+        const AlertDemo = asyncComponent(() => (
+            import(/* webpackChunkName: "AlertDemo" */ "./other/AlertDemo.jsx")
+        ));
+        const DynamicTable = asyncComponent(() => (
+            import(/* webpackChunkName: "DynamicTable" */ "./table/DynamicTable.jsx")
+        ));
+        const EditTable = asyncComponent(() => (
+            import(/* webpackChunkName: "EditTable" */ "./table/EditTable.jsx")
+        ));
+        const GDheadTable = asyncComponent(() => (
+            import(/* webpackChunkName: "GDheadTable" */ "./table/GDheadTable.jsx")
+        ));
+        const HeBingTable = asyncComponent(() => (
+            import(/* webpackChunkName: "HeBingTable" */ "./table/HeBingTable.jsx")
+        ));
+        const ExpandedRowTable = asyncComponent(() => (
+            import(/* webpackChunkName: "ExpandedRowTable" */ "./table/ExpandedRowTable.jsx")
+        ));
+        const BorderTable = asyncComponent(() => (
+            import(/* webpackChunkName: "BorderTable" */ "./table/BorderTable.jsx")
+        ));
+        const LoadTable = asyncComponent(() => (
+            import(/* webpackChunkName: "LoadTable" */ "./table/LoadTable.jsx")
+        ));
+        const SelectionTable1 = asyncComponent(() => (
+            import(/* webpackChunkName: "SelectionTable1" */ "./table/SelectionTable1.jsx")
+        ));
+        const SelectionTable = asyncComponent(() => (
+            import(/* webpackChunkName: "SelectionTable" */ "./table/SelectionTable.jsx")
+        ));
+        const BaseTabel = asyncComponent(() => (
+            import(/* webpackChunkName: "BaseTabel" */ "./table/BaseTabel.jsx")
+        ));
 
 
         this.views = {

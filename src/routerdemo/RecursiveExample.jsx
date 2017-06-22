@@ -9,6 +9,11 @@ export class RecursiveExample extends React.Component {
 
     constructor() {
         super();
+
+        import(/* webpackChunkName: "my-chunk-name" */ './a.js').then(module => module.default).then(A => {
+            const a = new A();
+            a.f();
+        });
     }
 
     render() {

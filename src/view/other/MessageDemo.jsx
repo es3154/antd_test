@@ -6,7 +6,7 @@ import React from 'react';
 import { message, Button } from 'antd';
 
 
-export class MessageDemo extends React.Component {
+export default class MessageDemo extends React.Component {
 
     constructor() {
         super();

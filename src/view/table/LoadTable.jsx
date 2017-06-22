@@ -5,7 +5,7 @@
 import React from 'react';
 import { Table } from 'antd';
 import reqwest from 'reqwest';
-export class LoadTable extends React.Component {
+export default class LoadTable extends React.Component {
 
     constructor() {
         super();

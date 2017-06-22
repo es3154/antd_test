@@ -5,7 +5,7 @@
 import React from 'react';
 import { Button, notification } from 'antd';
 
-export class NotificationDemo extends React.Component {
+export default class NotificationDemo extends React.Component {
 
     constructor() {
         super();

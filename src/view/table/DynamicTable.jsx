@@ -6,7 +6,7 @@ import React from 'react';
 import { Table, Icon, Switch, Radio, Form } from 'antd';
 const FormItem = Form.Item;
 
-export class DynamicTable extends React.Component {
+export default class DynamicTable extends React.Component {
 
     constructor() {
         super();

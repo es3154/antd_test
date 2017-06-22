@@ -5,7 +5,7 @@
 import React from 'react';
 import { Table, Icon } from 'antd';
 
-export class BaseTabel extends React.Component {
+export default class BaseTabel extends React.Component {
 
     constructor() {
         super();

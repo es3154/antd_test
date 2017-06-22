@@ -5,7 +5,7 @@
 import React from 'react';
 import { Table } from 'antd';
 
-export class SelectionTable extends React.Component {
+export default class SelectionTable extends React.Component {
 
     constructor() {
         super();

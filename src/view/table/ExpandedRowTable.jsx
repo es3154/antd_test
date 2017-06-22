@@ -5,7 +5,7 @@
 import React from 'react';
 import { Table } from 'antd';
 
-export class ExpandedRowTable extends React.Component {
+export default class ExpandedRowTable extends React.Component {
 
     constructor() {
         super();
