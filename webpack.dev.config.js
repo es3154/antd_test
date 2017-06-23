@@ -7,7 +7,8 @@ module.exports = {
   },
   output: {
       path: path.resolve(__dirname, 'bulider'),
-      filename: '[name].bundle.js',
+      publicPath: "/assets/",
+      filename: '[name].js',
       chunkFilename: '[name].js'
   },
   module: {
@@ -49,5 +50,16 @@ module.exports = {
             }]
         }
     ]
-  }
+  },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks : function(module) {
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest'
+        })
+    ]
 };

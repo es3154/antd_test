@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>ant design demo</title>
+
 </head>
 <body>
 <div id="app"></div>
-<script src="http://localhost:6767/main.bundle.js" type="text/javascript"></script>
+<!--manifest.js 和 vendor.js的顺序不能调换-->
+<script src="./assets/manifest.js" type="text/javascript"></script>
+<script src="./assets/vendor.js" type="text/javascript"></script>
+<script src="./assets/main.js" type="text/javascript"></script>
 </body>
 </html>
