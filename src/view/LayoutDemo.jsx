@@ -32,6 +32,9 @@ import { BaseTabel } from './table/BaseTabel.jsx';
 // import { MessageDemo } from './other/MessageDemo.jsx';
 // import { NotificationDemo } from './other/NotificationDemo.jsx';
 import { asyncComponent } from './AsyncComponent.jsx';
+// import { SimpleEChartsDemo } from './echarts/SimpleEChartsDemo.jsx';
+
+import ReactEcharts from 'echarts-for-react';  //引入echarts框架,打包进vendor
 
 import './layoutDemo.css';
 
@@ -43,7 +46,7 @@ export class LayoutDemo extends React.Component {
         this.state = {
             collapsed: false,
             mode: 'inline',
-            selectMenuItem:'alertDemo'
+            selectMenuItem:'simpleEChartsDemo'
         };
 
         const RegistrationFormCreate = Form.create()(RegistrationForm);
@@ -95,7 +98,15 @@ export class LayoutDemo extends React.Component {
         const BaseTabel = asyncComponent(() => (
             import(/* webpackChunkName: "BaseTabel" */ "./table/BaseTabel.jsx")
         ));
-
+        const SimpleEChartsDemo = asyncComponent(() => (
+            import(/* webpackChunkName: "SimpleEChartsDemo" */ "./echarts/SimpleEChartsDemo.jsx")
+        ));
+        const SimpleEChartsDemo1 = asyncComponent(() => (
+            import(/* webpackChunkName: "SimpleEChartsDemo1" */ "./echarts/SimpleEChartsDemo1.jsx")
+        ));
+        const SimpleEChartsDemo2 = asyncComponent(() => (
+            import(/* webpackChunkName: "SimpleEChartsDemo1" */ "./echarts/SimpleEChartsDemo2.jsx")
+        ));
 
         this.views = {
             'nav': <NavigationsDemo/>,
@@ -122,7 +133,10 @@ export class LayoutDemo extends React.Component {
             'alertDemo': <AlertDemo/>,
             'modalDemo': <ModalDemo/>,
             'messageDemo': <MessageDemo/>,
-            'notificationDemo': <NotificationDemo/>
+            'notificationDemo': <NotificationDemo/>,
+            'simpleEChartsDemo': <SimpleEChartsDemo/>,
+            'simpleEChartsDemo1': <SimpleEChartsDemo1/>,
+            'simpleEChartsDemo2': <SimpleEChartsDemo2/>
         };
 
         this.onCollapse = this.onCollapse.bind(this);
@@ -233,8 +247,8 @@ export class LayoutDemo extends React.Component {
             <Layout>
                 <Sider collapsible={true} collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                     <div className="log"></div>
-                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['baseTable']}
-                          defaultOpenKeys={['sub4']} onSelect={this.onMenuItemSelect}>
+                    <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['simpleEChartsDemo']}
+                          defaultOpenKeys={['sub5']} onSelect={this.onMenuItemSelect}>
                         <SubMenu key="sub1"
                                  title={<span><Icon type="user"/><span className="nav-text">User</span></span>}>
                             <Menu.Item key="nav">NavigationsDemo</Menu.Item>
@@ -271,6 +285,14 @@ export class LayoutDemo extends React.Component {
                             <Menu.Item key="alertDemo">AlertDemo</Menu.Item>
                             <Menu.Item key="modalDemo">ModalDemo</Menu.Item>
                             <Menu.Item key="messageDemo">MessageDemo</Menu.Item>
+                            <Menu.Item key="notificationDemo">NotificationDemo</Menu.Item>
+                            <Menu.Item key="alertDemo">AlertDemo</Menu.Item>
+                        </SubMenu>
+                        <SubMenu key="sub5"
+                                 title={<span><Icon type="file"/><span className="nav-text">ECharts</span></span>}>
+                            <Menu.Item key="simpleEChartsDemo">SimpleEChartsDemo</Menu.Item>
+                            <Menu.Item key="simpleEChartsDemo1">SimpleEChartsDemo1</Menu.Item>
+                            <Menu.Item key="simpleEChartsDemo2">SimpleEChartsDemo2</Menu.Item>
                             <Menu.Item key="notificationDemo">NotificationDemo</Menu.Item>
                             <Menu.Item key="alertDemo">AlertDemo</Menu.Item>
                         </SubMenu>
