@@ -7,7 +7,7 @@ import { Form, Row, Col, Input, Button, Icon} from 'antd';
 import './advancedSearchForm.css';
 const FormItem = Form.Item;
 
-export class AdvancedSearchForm extends React.Component {
+class AdvancedSearchForm extends React.Component {
 
     constructor() {
         super();
@@ -79,3 +79,6 @@ export class AdvancedSearchForm extends React.Component {
         );
     }
 }
+
+const AdvancedSearchFormCreate = Form.create()(AdvancedSearchForm);
+export default AdvancedSearchFormCreate;

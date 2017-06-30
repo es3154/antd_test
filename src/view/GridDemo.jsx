@@ -6,7 +6,7 @@ import React from 'react';
 import { Row, Col} from 'antd';
 import './griddemo.css';
 
-export class GridDemo extends React.Component {
+export default class GridDemo extends React.Component {
 
     constructor() {
         super();

@@ -13,7 +13,7 @@ function hasErrors(fieldsError) {
     })
 }
 
-export class FormDemo extends React.Component {
+class FormDemo extends React.Component {
 
     constructor() {
         super();
@@ -64,5 +64,7 @@ export class FormDemo extends React.Component {
     }
 }
 
+const FormDemoCreate = Form.create()(FormDemo);
+export default FormDemoCreate;
 
 

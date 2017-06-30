@@ -7,7 +7,7 @@ import { AutoComplete, Checkbox } from 'antd';
 const { Option } = AutoComplete;
 const CheckBoxGroup = Checkbox.Group;
 
-export class AutoCompleteDemo extends React.Component {
+export default class AutoCompleteDemo extends React.Component {
 
     constructor() {
         super();

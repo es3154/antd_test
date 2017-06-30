@@ -10,7 +10,7 @@ import { Form, Button, DatePicker, TimePicker } from 'antd';
 const FormItem = Form.Item;
 const { MonthPicker, RangePicker } = DatePicker;
 
-export class TimeRelatedForm extends React.Component {
+class TimeRelatedForm extends React.Component {
 
     constructor() {
         super();
@@ -118,3 +118,6 @@ export class TimeRelatedForm extends React.Component {
         );
     }
 }
+
+const TimeRelatedFormCreate = Form.create()(TimeRelatedForm);
+export default TimeRelatedFormCreate;

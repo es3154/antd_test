@@ -7,7 +7,7 @@ import { Tabs, Icon, Button, Select } from 'antd';
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 
-export class TabsDemo extends React.Component {
+export default class TabsDemo extends React.Component {
 
     constructor() {
         super();

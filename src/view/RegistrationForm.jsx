@@ -9,7 +9,7 @@ const AutoCompleteOption = AutoComplete.Option;
 const { Option } = Select;
 
 
-export class RegistrationForm extends React.Component {
+class RegistrationForm extends React.Component {
 
     constructor() {
         super();
@@ -245,3 +245,6 @@ const residences = [{
         }],
     }],
 }];
+
+const RegistrationFormCreate = Form.create()(RegistrationForm);
+export default RegistrationFormCreate;

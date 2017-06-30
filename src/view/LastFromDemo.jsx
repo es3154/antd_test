@@ -10,7 +10,7 @@ const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
-export class LastFromDemo extends React.Component {
+class LastFromDemo extends React.Component {
 
     constructor() {
         super();
@@ -151,3 +151,6 @@ export class LastFromDemo extends React.Component {
         );
     }
 }
+
+const LastFromDemoCreate = Form.create()(LastFromDemo);
+export default LastFromDemoCreate;

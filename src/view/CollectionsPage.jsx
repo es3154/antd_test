@@ -56,7 +56,7 @@ class CollectionCreateForm extends React.Component {
 
 const CollectionCreateFormCreate = Form.create()(CollectionCreateForm);
 
-export class CollectionsPage extends React.Component {
+export default class CollectionsPage extends React.Component {
 
     constructor() {
         super();

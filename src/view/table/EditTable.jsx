@@ -80,14 +80,14 @@ export default class EditTable extends React.Component {
         this.state = {
             dataSource: [{
                 key: '0',
-                name: 'Edward King 0',
+                name: 'Edwadwewerd King 0',
                 age: '32',
-                address: 'London, Park Lane no. 0',
+                address: 'London, Park Lawefwfne no. 0',
             }, {
                 key: '1',
-                name: 'Edward King 1',
+                name: 'Edward King 2sssff',
                 age: '32',
-                address: 'London, Park Lane no. 1',
+                address: 'London, Pak Lane no. 1',
             }],
             count: 2,
         };
@@ -138,9 +138,9 @@ export default class EditTable extends React.Component {
             const { count, dataSource } = this.state;
             const newData = {
                 key: count,
-                name: `Edward King ${count}`,
+                name: `Edward Kinswefwefewfewfsssg ${count}`,
                 age: 32,
-                address: `London, Park Lane no. ${count}`,
+                address: `London, Pasffffffffffffffssrk Lane no. ${count}`,
             };
             this.setState({
                 dataSource: [...dataSource, newData],

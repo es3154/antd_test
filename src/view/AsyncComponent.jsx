@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-export const asyncComponent = loadComponent => (
+export const asyncComponent = (loadComponent, params) => (
     class AsyncComponent extends React.Component {
 
         constructor() {
@@ -32,6 +32,7 @@ export const asyncComponent = loadComponent => (
 
         render() {
             const { Component } = this.state;
+            this.props.params = params;
             return (Component) ? <Component {...this.props}/> : null;
         }
     }

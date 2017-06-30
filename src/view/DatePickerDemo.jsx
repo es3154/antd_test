@@ -22,7 +22,7 @@ function disabledDateTime() {
     };
 }
 
-export class DatePickerDemo extends React.Component {
+export default class DatePickerDemo extends React.Component {
 
     constructor() {
         super();

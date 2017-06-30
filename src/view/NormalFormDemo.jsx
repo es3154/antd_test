@@ -7,7 +7,7 @@ import { Form, Icon, Input, Checkbox, Button } from 'antd';
 import './normalformdemo.css';
 const FormItem = Form.Item;
 
-export class NormalFormDemo extends React.Component {
+class NormalFormDemo extends React.Component {
 
     constructor() {
         super();
@@ -50,3 +50,6 @@ export class NormalFormDemo extends React.Component {
         </Form>);
     }
 }
+
+const NormalFormDemoCreate = Form.create()(NormalFormDemo);
+export default NormalFormDemoCreate;

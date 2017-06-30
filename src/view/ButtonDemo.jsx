@@ -5,7 +5,7 @@
 import React from 'react';
 import { Button, Radio, Icon } from 'antd';
 
-export class ButtonDemo extends React.Component {
+export default class ButtonDemo extends React.Component {
 
     constructor() {
         super();

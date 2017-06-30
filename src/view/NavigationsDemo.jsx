@@ -6,7 +6,7 @@ import React from 'react';
 import { Icon, Dropdown, Button, Pagination, Steps, Menu } from 'antd';
 const { Step } = Steps;
 
-export class NavigationsDemo extends React.Component {
+export default class NavigationsDemo extends React.Component {
 
     constructor() {
         super();
