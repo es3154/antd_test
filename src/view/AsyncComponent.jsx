@@ -32,8 +32,7 @@ export const asyncComponent = (loadComponent, params) => (
 
         render() {
             const { Component } = this.state;
-            this.props.params = params;
-            return (Component) ? <Component {...this.props}/> : null;
+            return (Component) ? <Component {...this.props} params={params}/> : null;
         }
     }
 )

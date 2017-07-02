@@ -43,6 +43,13 @@ class RegistrationForm extends React.Component {
                if(!error) {
                    console.log('Received values of form: ', values);
                }
+
+               //测试动态加载模块 外部传递自定义参数功能
+               const params = this.props.params;
+                params.map(({key, name, description}) => {
+                    console.log(`key=${key}    name=${name}   description=${description}`);
+                    return key;
+                })
             });
         }
     }
