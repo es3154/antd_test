@@ -4,9 +4,9 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { LayoutDemo } from './LayoutDemo.jsx';
-import 'echarts-for-react';  //引入echarts框架,打包进vendor
+// import 'echarts-for-react';  //引入echarts框架,打包进vendor
 
 class App extends React.Component {
 
@@ -22,9 +22,7 @@ class App extends React.Component {
 
         return (
             <BrowserRouter>
-                <div>
-                    <LayoutDemo/>
-                </div>
+                <Route path='/' component={LayoutDemo}/>
             </BrowserRouter>
         )
     }

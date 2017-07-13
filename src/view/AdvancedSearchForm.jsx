@@ -5,6 +5,7 @@
 import React from 'react';
 import { Form, Row, Col, Input, Button, Icon} from 'antd';
 import './advancedSearchForm.css';
+import funObj from '../test/moduletest.js'
 const FormItem = Form.Item;
 
 class AdvancedSearchForm extends React.Component {
@@ -33,7 +34,17 @@ class AdvancedSearchForm extends React.Component {
                     console.log('Received values of form: ',values);
                 }
             });
+
+            const {getS, setS} = funObj
+            setS(20)
+            console.log(`getS():${getS()}`)
         };
+
+        this.testRouter = (e) => {
+            e.preventDefault();
+            const { match,history,location } = this.props;
+            history.push('/SimpleEChartsDemo2');
+        }
     }
 
     render() {
@@ -42,6 +53,10 @@ class AdvancedSearchForm extends React.Component {
             labelCol: { span: 5 },
             wrapperCol: { span: 19 }
         };
+
+        //测试route相关
+        // const { match } = this.props;
+        // console.log(`match=${match}`)
 
         const children = [];
 
@@ -70,6 +85,7 @@ class AdvancedSearchForm extends React.Component {
                     <Col span={24} style={{textAlign:'right'}}>
                         <Button type='primary' htmlType='submit'>Search</Button>
                         <Button type='primary' style={{ marginLeft:8 }} onClick={this.handleReset}>Clear</Button>
+                        <Button type='primary' style={{ marginLeft:8 }} onClick={this.testRouter}>Test</Button>
                         <a style={{ marginLeft:8, fontSize:12 }} onClick={ this.toggle }>
                             Collapse<Icon type={ expand ? 'up':'down' }/>
                         </a>

@@ -61,5 +61,15 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest'
         })
-    ]
+    ],
+    devServer: {
+        https: true,
+        proxy: {
+            '/kpi/*': {
+                target: 'http://10.87.61.20:8200',
+                secure: false
+            }
+        }
+    },
+    devtool: 'source-map'   //调试相关
 };

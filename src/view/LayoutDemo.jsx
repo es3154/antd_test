@@ -14,6 +14,7 @@ import menus from '../menuConfig.js';
 import { asyncComponent } from  './AsyncComponent.jsx';
 
 import './layoutDemo.css';
+// import myTest from '../test/fetchTest.js';
 
 export class LayoutDemo extends React.Component {
 
@@ -31,6 +32,7 @@ export class LayoutDemo extends React.Component {
 
         this.onMenuItemSelect = this.onMenuItemSelect.bind(this);
 
+        // myTest();
     }
 
     onCollapse(collapsed) {
@@ -42,9 +44,13 @@ export class LayoutDemo extends React.Component {
     }
 
     onMenuItemSelect({item, key, selectedKeys}) {
-        const selectMenuItem = key;
-        console.log(key);
-        this.setState({selectMenuItem});
+        // const selectMenuItem = key;
+        // console.log(key);
+        // this.setState({selectMenuItem});
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(`nextProps:${nextProps.match.url}   this.props:${this.props}`)
     }
 
     render() {

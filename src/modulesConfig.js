@@ -188,7 +188,7 @@ const modules = [{
     name:'AdvancedSearchForm',
     path:'/AdvancedSearchForm',
     module:()=>(
-        import(/* webpackChunkName: "NotificationDemo" */ "./view/AdvancedSearchForm.jsx")
+        import(/* webpackChunkName: "AdvancedSearchForm" */ "./view/AdvancedSearchForm.jsx")
     ),
     actions:[]
 },{

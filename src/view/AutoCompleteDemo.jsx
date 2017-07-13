@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { AutoComplete, Checkbox } from 'antd';
+import funObj from '../test/moduletest.js'
 const { Option } = AutoComplete;
 const CheckBoxGroup = Checkbox.Group;
 
@@ -26,6 +27,10 @@ export default class AutoCompleteDemo extends React.Component {
 
         this.checkBoxChangeHandle = e => {
             console.log(e.target.checked);
+
+            const {getS} = funObj
+            // setS(30)
+            console.log(`getS():${getS()}`)
         };
 
         this.checkBoxGroupChangeHandle = checkValues => {
