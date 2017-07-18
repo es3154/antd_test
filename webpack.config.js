@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var WebpackMd5Hash = require('webpack-md5-hash');
+var getThemeConfig = require('./src/theme.js');
 
 module.exports = {
     entry: {
@@ -41,14 +42,26 @@ module.exports = {
                                 'import',
                                 {
                                     libraryName: 'antd',
-                                    style: 'css' // or true or css 这里必须是 css，否则样式不能加载
+                                    style: true
                                 }
                             ],
                             'syntax-dynamic-import'
                         ]
                     }
                 }]
-            }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader:"less-loader",
+                        options:{
+                            modifyVars:getThemeConfig()
+                        }
+                    }]
+            },
         ]
     },
     plugins: [
