@@ -1,0 +1,14 @@
+h1, h2, p {
+    font-family: sans-serif;
+    text-align: center;
+}
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#app {
+    width: 1000px;
+    height: 800px;
+}

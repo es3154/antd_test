@@ -5,8 +5,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { LayoutDemo } from './LayoutDemo.jsx';
-// import 'echarts-for-react';  //引入echarts框架,打包进vendor
+import { Provider } from 'mobx-react';
+// import { LayoutDemo } from './LayoutDemo.jsx';
+// import { LayoutTest } from '../test/LayoutTest.jsx'
+import { UserAppStore } from '../test/UserAppStore.js';
+import { MobxTest } from '../test/MobxTest.jsx';
 
 class App extends React.Component {
 
@@ -21,9 +24,12 @@ class App extends React.Component {
     render() {
 
         return (
-            <BrowserRouter>
-                <Route path='/' component={LayoutDemo}/>
-            </BrowserRouter>
+            <Provider {...new UserAppStore()}>
+                <BrowserRouter>
+                    <Route path='/' component={MobxTest}/>
+                </BrowserRouter>
+            </Provider>
+
         )
     }
 }

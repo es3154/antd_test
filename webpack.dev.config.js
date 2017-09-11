@@ -37,6 +37,7 @@ module.exports = {
                         'stage-2'
                     ],
                     plugins: [
+                        'transform-decorators-legacy',
                         'transform-runtime',
                         [
                             'import',
@@ -62,6 +63,17 @@ module.exports = {
                     }
                 }]
         },
+        {
+            test: /\.(png|jpg|gif)$/,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192
+                    }
+                }
+            ]
+        }
     ]
   },
     plugins: [
