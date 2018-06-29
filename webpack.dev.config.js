@@ -96,5 +96,5 @@ module.exports = {
             }
         }
     },
-    devtool: 'source-map'   //调试相关
+    devtool: 'source-map'   //调试相关 hahahah
 };
