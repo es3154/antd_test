@@ -1,5 +1,5 @@
 /**
- * Created by ddxx on 2017/5/12.
+ * Created by ddxx on 2018/7/2
  */
 
 import React from 'react';
@@ -13,10 +13,9 @@ import menus from '../menuConfig.js';
 
 import { asyncComponent } from '../core/AsyncComponent.jsx';
 
-import './layoutDemo.css';
-// import myTest from '../test/fetchTest.js';
+import '../theme/main.scss';
 
-export class LayoutDemo extends React.Component {
+export class Main extends React.Component {
 
     constructor() {
         super();
@@ -43,10 +42,6 @@ export class LayoutDemo extends React.Component {
         // this.setState({selectMenuItem});
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(`nextProps:${nextProps.match.url}   this.props:${this.props}`)
-    }
-
     render() {
         return (
 
@@ -70,8 +65,8 @@ export class LayoutDemo extends React.Component {
                         <div style={{padding:24, background:'#fff', minHeight:360}}>
                             <Switch>
                                 {
-                                    modules.map((module) => (
-                                        <RouteItem {...module}/>
+                                    modules.map((module, i) => (
+                                        <RouteItem key={i} {...module}/>
                                     ))
                                 }
                             </Switch>

@@ -1,100 +1,39 @@
-var path = require('path');
-var webpack = require('webpack');
-var getThemeConfig = require('./src/theme.js');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseConf = require('./webpack.base.config');
 
-module.exports = {
-  entry: {
-      main : './src/main.js'
-  },
-  output: {
-      path: path.resolve(__dirname, 'bulider'),
-      publicPath: "/assets/",
-      filename: '[name].js',
-      chunkFilename: '[name].js'
-  },
-  module: {
-    rules: [
-        {
-            test:/\.css$/,
-            //exclude:/node_modules/, // 这里千万要注意了，按需加载时，没有样式，这里弄的
-            use:[
-                "style-loader",
-                "css-loader"
-            ]
-        },
-        {
-            test: /\.jsx|.js$/,
-            exclude: /(node_modules)/,
-            use: [{
-                loader: "babel-loader",
-                options: {
-                    presets: [
-                        [
-                            'es2015',
-                            {modules: false}
-                        ],
-                        'react',
-                        'stage-2'
-                    ],
-                    plugins: [
-                        'transform-decorators-legacy',
-                        'transform-runtime',
-                        [
-                            'import',
-                            {
-                                libraryName: 'antd',
-                                style: true
-                            }
-                        ],
-                        'syntax-dynamic-import'
-                    ]
+
+
+const devConf = () => {
+
+    return {
+        mode: 'development',
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify('development')
+            })
+        ],
+        devServer: {
+            https: false,
+            port: 7777, // 端口
+            host: 'localhost',
+            overlay: true,
+            compress: true, // 服务器返回浏览器的时候是否启动gzip压缩
+            historyApiFallback: true,
+            open: true,
+            proxy: {
+                '/kpi/*': {
+                    target: 'http://10.33.31.12:8200',
                 }
-            }]
-        },
-        {
-            test: /\.less$/,
-            use: [
-                "style-loader",
-                "css-loader",
-                {
-                    loader:"less-loader",
-                    options:{
-                        modifyVars:getThemeConfig()
-                    }
-                }]
-        },
-        {
-            test: /\.(png|jpg|gif)$/,
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192
-                    }
-                }
-            ]
-        }
-    ]
-  },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks : function(module) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
             }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest'
-        })
-    ],
-    devServer: {
-        https: true,
-        proxy: {
-            '/kpi/*': {
-                target: 'http://10.87.61.20:8200',
-                secure: false
-            }
-        }
-    },
-    devtool: 'source-map'   //调试相关 hahahah
-};
+        },
+        devtool: 'eval-source-map'   //调试相关
+    }
+
+
+}
+
+module.exports = env =>{
+    env.devMode = true;
+    return merge(baseConf(env), devConf());
+}

@@ -1,0 +1,58 @@
+
+/********用于监测主题切换的时候新的样式是否生效**********/
+.theme-load {
+  @if($theme == 'def') {
+    width: 1px;
+    height: 1px;
+  } @else if($theme == 'red') {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+
+
+/****leaflet地图容器*****/
+.leaflet-container {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+/********绝对定位居中，使用绝对定位时候，子元素居中布局**********/
+.absolute-center {
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.absolute-horizontal-center {
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.absolute-vertical-center {
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+
+.log {
+
+  height: 31px;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px 24px 16px 0;
+}

@@ -99,10 +99,10 @@ const modules = [{
     id:'LoadTable',
     name:'LoadTable',
     path:'/LoadTable',
-    module:()=>(
-        import(/* webpackChunkName: "LoadTable" */ "./view/table/LoadTable.jsx")
-    ),
-    actions:[]
+    // module:()=>(
+    //     import(/* webpackChunkName: "LoadTable" */ "./view/table/LoadTable.jsx")
+    // ),
+    // actions:[]
 },{
     id:'SelectionTable1',
     name:'SelectionTable1',

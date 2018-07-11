@@ -1,0 +1,17 @@
+/**
+ * Created by ddxx on 2018/1/16.
+ * 用于覆盖antd的样式
+ */
+
+/**********antd3.0 这块的基础样式没了，
+导致一些问题，例如我们自己的Modal组件莫名出现滚动条************/
+body, div, dl, dt, dd, ul, ol,
+li, h1, h2, h3, h4, h5, h6, pre,
+code, form, fieldset, legend,
+input, textarea, p, blockquote,
+th, td, hr, button, article, aside,
+details, figcaption, figure, footer,
+header, hgroup, menu, nav, section {
+  margin: 0px;
+  padding: 0px;
+}

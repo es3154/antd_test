@@ -1,0 +1,44 @@
+/**
+ * Created by ddxx on 2018/1/16.
+ * 默认主题变量定义
+ */
+
+$theme: "def";
+
+$primary-color: #0064B4;
+$text-color: #ECECEC;
+$disabled-text-color: gray;
+$font-size-base: 14px;
+
+$border-color-base: #0A2750;
+
+$background-color-base: #0A142A;
+
+//选中和鼠标移入颜色
+$select-color: #0064B4;
+$hover-color: #2C406F;
+$item-color: #17264B;
+
+
+@mixin border($color: $border-color-base, $width: 1px, $style: solid, $important: false) {
+  @if $important {
+    border: $width $style $color!important;
+  } @else {
+    border: $width $style $color;
+  }
+}
+
+//省略号混合器
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+//阴影样式
+@mixin shadow {
+  box-shadow: 0 0 6px #000000;
+}
+
+
+
