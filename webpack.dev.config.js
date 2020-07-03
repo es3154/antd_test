@@ -21,11 +21,6 @@ const devConf = () => {
             compress: true, // 服务器返回浏览器的时候是否启动gzip压缩
             historyApiFallback: true,
             open: true,
-            proxy: {
-                '/kpi/*': {
-                    target: 'http://10.33.31.12:8200',
-                }
-            }
         },
         devtool: 'eval-source-map'   //调试相关
     }

@@ -1,110 +1,90 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const antDThemeConf = require('./src/theme/antdThemeConf.js');
+
 
 module.exports = (env) => {
 
-    const { devMode, theme } =  env;
+    const { devMode } =  env;
 
     return {
-        output: {
-            publicPath: "/",
-            filename: '[name].js',
-            chunkFilename: '[name].js'
-        },
+
         resolve: {
-            extensions: ['.js', '.jsx', '.json'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
             alias: {
                 'assets': path.resolve(__dirname, 'src/assets'),
                 'core': path.resolve(__dirname, 'src/core'),
                 'manager': path.resolve(__dirname, 'src/manager'),
                 'view': path.resolve(__dirname, 'src/view'),
                 'utils': path.resolve(__dirname, 'src/utils'),
+                'hooks': path.resolve(__dirname, 'src/hooks'),
             }
         },
         module: {
             rules: [
                 {
-                    test: /\.jsx|.js$/,
-                    exclude: /(node_modules)/,
-                    use: [{
-                        loader: "babel-loader",
-                        options: {
-                            presets: [
-                                [
-                                    'env',
-                                    {
-                                        "targets": {
-                                            "chrome": 60,
-                                            "browsers": ["last 2 versions"]
-                                        },
-                                        "modules": false,
-                                    },
-                                ],
-                                'react',
-                                'stage-2'
-                            ],
-                            plugins: [
-                                'transform-decorators-legacy',
-                                'transform-runtime',
-                                [
-                                    'import',
-                                    {
-                                        libraryName: 'antd',
-                                        style: true
-                                    }
-                                ],
-                                'syntax-dynamic-import'
-                            ]
-                        }
-                    }]
-                },
-                {
-                    test: /\.(png|jpg|gif|ico|ttf|woff|eot)$/,
+                    test: /\.(ts|js)x?$/,
+                    exclude: /node_modules/,
                     use: [
                         {
-                            loader: "url-loader",
+                            loader: "babel-loader",
                             options: {
-                                limit: 8192,
-                                name: "images/[name].[hash:8].[ext]"
+                                presets: [
+                                    '@babel/preset-env',
+                                    "@babel/typescript",
+                                    '@babel/preset-react'
+                                ],
+                                plugins: [
+                                    "@babel/proposal-class-properties",
+                                    "@babel/proposal-object-rest-spread",
+                                    '@babel/plugin-transform-runtime',
+                                    '@babel/plugin-syntax-dynamic-import',
+                                    [
+                                        'import',
+                                        {
+                                            libraryName: 'antd',
+                                            libraryDirectory: 'es',
+                                            style: true
+                                        },
+                                        'antd'
+                                    ],
+                                ]
                             }
-                        }
+                        },
                     ]
                 },
                 {
-                    test:/\.less/,
+                    test:/\.less$/,
                     use: [
                         devMode ? 'style-loader': MiniCssExtractPlugin.loader,
                         'css-loader',
                         {
                             loader: 'less-loader',
                             options:{
-                                javascriptEnabled: true,
-                                modifyVars:antDThemeConf(theme)
+                                lessOptions: {
+                                    javascriptEnabled: true
+                                }
                             }
                         }
                     ],
                 },
                 {
-                    test:/\.scss$/,
+                    test: /\.(png|jpg|gif|ttf|woff|eot|svg)$/,
                     use: [
-                        devMode ? 'style-loader': MiniCssExtractPlugin.loader,
-                        'css-loader',
-                        'sass-loader',
                         {
-                            loader: 'sass-resources-loader',
+                            loader: "url-loader",
                             options: {
-                                resources: `./src/theme/_${theme}.scss`
+                                limit: 8192,
+                                name: "images/[name].[hash:12].[ext]"
                             }
                         }
-                    ],
+                    ]
                 },
                 {
                     test:/\.css$/,
                     use: [
                         devMode ? 'style-loader': MiniCssExtractPlugin.loader,
-                        'css-loader'
+                        'css-loader',
                     ],
                 }
             ]
