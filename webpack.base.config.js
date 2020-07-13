@@ -1,11 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const getModifyVars = require('./src/theme');
 
 
 module.exports = (env) => {
 
-    const { devMode } =  env;
+    const { devMode, theme } =  env;
+
+    const modifyVars =  getModifyVars(theme);
 
     return {
 
@@ -62,7 +65,8 @@ module.exports = (env) => {
                             loader: 'less-loader',
                             options:{
                                 lessOptions: {
-                                    javascriptEnabled: true
+                                    javascriptEnabled: true,
+                                    modifyVars: modifyVars
                                 }
                             }
                         }
